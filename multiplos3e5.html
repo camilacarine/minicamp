@@ -1,0 +1,68 @@
+<html>
+    <script>
+        //Se listarmos todos os número naturais menores
+        //que 10 e que são múltiplos de 3 ou 5, obtemos 
+        //3, 5, 6 e 9. A soma desses múltiplos é 23.
+        // Encontre a soma de todos os múltiplos de 3 ou 5 abaixo de 1000.
+        //Resposta correta: 233168
+
+        //quebrar o problema
+        //1- saber se é múltiplo de 3 ou 5, verificar se é divisível por 3 ou 5
+        //2- criar uma função para essa resposta
+        //3- números menores que 1000, então 1000 não entra
+        //4- Fazer um loop de 3 até 999 verificando se é divisível por 3 ou 5
+        //5- somar os números encontrados no passo 4
+
+        function verificaDivisivel3ou5 (numero) {
+            //true -> o número é divisível por 3 ou 5
+            //false -> o número não é divisível por 3 ou 5
+            if (numero % 3 === 0 || numero % 5 === 0) {
+                return true; //return é vc que define, se texto ou número...            
+            } else {
+                return false;
+            }
+        }
+
+        function somaMultiplos3ou5() {
+            var soma = 0;
+
+            //para repetir trechos de códigos for e while
+            //inicialização, teste, incremento
+
+            /*for (var i = 3; i <= 999; i++)  { //ou <1000
+                if(verificaDivisivel3ou5(i)) { //é possível colocar o resultado 
+                    //numa lista
+                    //soma = soma + i
+                    soma += i;                    
+                }
+            }*/
+            var lista = [];
+
+            // usando while
+            /*
+            var i = 3;
+            while (i <= 999) {
+                if( verificaDivisivel3ou5(i)){
+                    soma += i;
+                    lista.push(i);
+                }
+                i++;
+            }
+            */
+            var contador = 3;
+            while (contador <= 999) {
+                if( verificaDivisivel3ou5(contador)){
+                    soma += contador;
+                    lista.push(contador);
+                }
+                contador = contador + 1;
+            }
+            //console.log(lista);
+            for(var i  = 0; i< lista.length; i++){
+                console.log(lista[i])
+            }
+            return soma;
+        }
+
+    </script>
+</html>
