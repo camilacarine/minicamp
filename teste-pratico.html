@@ -1,0 +1,28 @@
+<html>
+    <script>
+        function verificaNumeroPrimo(numero){
+            var lista = [];
+            for (var i = 2; i <= numero - 1 ; i++) {                
+                lista.push(i)                
+                }                
+                for (var i = 0; lista.length - 1; i++) {
+                    var module = numero % lista[i]
+                    if ( module !== 0) {
+                        console.log('[PARAM]: ', numero)
+                        console.log('[INDEX]: ', lista[i])
+                        console.log('[MODULE]: ', module)
+                        console.log('O número ' + numero + ' é primo')                        
+                        return true 
+                        
+                    } else {                       
+                        console.log('[PARAM]: ', numero)
+                        console.log('[INDEX]: ', lista[i])
+                        console.log('[MODULE]: ', module)
+                        console.log('O número ' + numero + ' não é primo')                             
+                        return false
+                        
+                    }
+                }     
+        }
+    </script>
+</html>
