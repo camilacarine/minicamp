@@ -1,0 +1,64 @@
+<html>
+    <script>
+        function criaIntervalo(numeroFinal) {
+        var intervaloDeDivisores = []
+        for(var i = 2; i < numeroFinal; i++) {
+            intervaloDeDivisores.push(i)
+        }
+        return intervaloDeDivisores
+        }
+
+        function listaResultadoModulos(number) {
+        var resultadoModulos = []
+        var intervalo = criaIntervalo(number)
+        for(var i = 0; i <= intervalo.length -1; i++) {
+            var divisor = intervalo[i]
+            var modulus = number % divisor
+            resultadoModulos.push(modulus)
+        }
+        return resultadoModulos
+        }
+
+        function verificaSeZero(number) {
+        var listaResultados = listaResultadoModulos(number)
+        for (var i = 0; i <= listaResultados.length - 1; i++){
+            if (listaResultados[i] === 0){
+            //console.log ("Tem zero")
+            return true            
+            }          
+        }
+        }        
+
+        function verificaSePrimo (number) {
+        var ehPrimo = verificaSeZero(number)
+            if (ehPrimo === true){
+            //console.log ("não é primo")
+            return false
+
+            } else {
+            //console.log ("é primo")
+            return true
+            }
+        
+        }
+      
+        function somaIntervaloPrimo (number) {  
+        var listaSomaPrimos = [];
+        var resultado = 0;
+        for (var i = 2; i < number; i++){
+            if (verificaSePrimo(i) === true) {                                
+                listaSomaPrimos.push(i);
+                console.log (listaSomaPrimos)
+                 }
+        }
+        for (var i = 0; i < listaSomaPrimos.length; i++) {
+            console.log('[FOR SOMAR]:', listaSomaPrimos[i])
+            resultado = resultado + listaSomaPrimos[i];            
+        }
+        console.log("O resultado final é " + resultado)
+        }
+               
+
+        
+    </script>
+</html>
