@@ -1,28 +1,47 @@
 <html>
     <script>
-        function verificaNumeroPrimo(numero){
-            var lista = [];
-            for (var i = 2; i <= numero - 1 ; i++) {                
-                lista.push(i)                
-                }                
-                for (var i = 0; lista.length - 1; i++) {
-                    var module = numero % lista[i]
-                    if ( module !== 0) {
-                        console.log('[PARAM]: ', numero)
-                        console.log('[INDEX]: ', lista[i])
-                        console.log('[MODULE]: ', module)
-                        console.log('O número ' + numero + ' é primo')                        
-                        return true 
-                        
-                    } else {                       
-                        console.log('[PARAM]: ', numero)
-                        console.log('[INDEX]: ', lista[i])
-                        console.log('[MODULE]: ', module)
-                        console.log('O número ' + numero + ' não é primo')                             
-                        return false
-                        
-                    }
-                }     
+        function criaIntervalo(numero) {
+        var intervaloDeDivisores = []
+        for(var i = 2; i < numero; i++) {
+            intervaloDeDivisores.push(i)
         }
+        return intervaloDeDivisores
+        }
+
+        function listaResultadoModulos(numero) {
+        var resultadoModulos = []
+        var intervalo = criaIntervalo(numero)
+        for(var i = 0; i <= intervalo.length -1; i++) {
+            var divisor = intervalo[i]
+            var modulus = numero % divisor
+            resultadoModulos.push(modulus)
+        }
+        return resultadoModulos
+        }
+
+        function verificaSeZero(numero) {
+        var listaResultados = listaResultadoModulos(numero)
+        for (var i = 0; i <= listaResultados.length - 1; i++){
+            if (listaResultados[i] === 0){
+            console.log ("Tem zero")
+            return true            
+            }          
+        }
+        }        
+
+        function verificaSePrimo (numero) {
+        var ehPrimo = verificaSeZero(numero)
+            if (ehPrimo === true){
+            console.log ("não é primo")
+            return false
+
+            } else {
+            console.log ("é primo")
+            return true
+            }
+        
+        }
+        /*var resultadoModulos = verificaSePrimo(918)
+        console.log(resultadoModulos)*/
     </script>
 </html>
